@@ -1,0 +1,39 @@
+<div class="container">
+    <form [formGroup]="estudianteForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3 mt-5">
+            <!-- margin-bottom: 3rem-->
+            <label class="form-label">Nombre</label>
+            <input formControlName="nombre" type="text" class="form-control" [ngClass]="{ 'is-invalid': estudianteForm.get('nombre')?.invalid && (estudianteForm.get('nombre')?.dirty || estudianteForm.get('nombre')?.touched) , 
+            'is-valid': !estudianteForm.get('nombre')?.errors}">
+            <div *ngIf="estudianteForm.get('nombre')?.errors">
+                <p>
+                    El nombre debe tener al menos 3 caracteres
+                </p>
+            </div>
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Carrera</label>
+            <input formControlName="carrera" type="text" class="form-control" [ngClass]="{ 'is-invalid': estudianteForm.get('carrera')?.invalid && (estudianteForm.get('carrera')?.dirty || estudianteForm.get('carrera')?.touched) , 
+            'is-valid': !estudianteForm.get('carrera')?.errors}">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Edad</label>
+            <input formControlName="edad" type="number" class="form-control" [min]="0" [max]="99">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Selecciona un profesor</label>
+            <select class="form-select" formControlName="idProfesor">
+                <option selected [disabled]="true">Lista de profesores</option>
+                <ng-container *ngFor="let profesor of profesores; let indiceProfesor = index">
+                    <option value={{profesor.id}}>
+                        {{profesor.nombre}}
+                    </option>
+                </ng-container>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

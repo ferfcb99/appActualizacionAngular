@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CrudModule } from './crud/crud.module';
+import { JsonplaceholderModule } from './jsonplaceholder/jsonplaceholder.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    CrudModule, 
+    JsonplaceholderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

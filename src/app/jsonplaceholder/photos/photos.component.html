@@ -1,0 +1,15 @@
+<div class="container mt-4">
+    <ng-container style="display: grid; grid-template-columns: repeat(3,1fr);">
+        <ng-container *ngFor="let photo of photosData; let i = index;">
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{photo.thumbnailUrl}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Album number: {{photo.albumId}}</h5>
+                    <p class="card-text">{{photo.title}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>

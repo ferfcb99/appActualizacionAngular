@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 style="margin: 2rem 0 0 0;">Tabla de profesores</h1>
+    <form class="d-flex mt-5">
+        <input class="form-control me-2" type="search" placeholder="Search" [(ngModel)]="palabraBusqueda" name="palabraBusqueda" (input)="cleanInput()">
+        <button class="btn btn-outline-success" type="submit" (click)="buscar()">Search</button>
+      </form>
+    <table class="table table-success table-striped mt-5">
+        <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let profesor of profesores">
+              <th scope="row">{{profesor.id}}</th>
+              <td>{{profesor.nombre}}</td>
+              <td>{{profesor.apellido}}</td>
+              <td style="display: grid; grid-template-columns: repeat(2, 1fr);">
+                  <button type="button" class="btn btn-danger" style="max-width: 200px;" (click)="eliminar(profesor)">Eliminar</button>
+                  <button type="button" class="btn btn-warning" style="max-width: 200px;">Actualizar</button>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+</div>
